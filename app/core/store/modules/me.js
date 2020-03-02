@@ -81,6 +81,10 @@ export default {
       commit('updateUser', { ozariaUserOptions:
         { ...ozariaConfig, avatar: { levelThangTypeId, cinematicThangTypeId } }
       })
+    },
+
+    authenticated ({ commit }, user) {
+      commit('updateUser', user)
     }
   }
 }
