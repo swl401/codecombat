@@ -54,7 +54,9 @@ module.exports = class AuthModal extends ModalView
     res = tv4.validateMultiple userObject, formSchema
     return forms.applyErrorsToForm(@$el, res.errors) unless res.valid
     new Promise(me.loginPasswordUser(userObject.emailOrUsername, userObject.password).then)
-    .then(=> application.tracker.identify())
+    .then(=>
+      return application.tracker.identify()
+    )
     .then(=>
       if window.nextURL
         window.location.href = window.nextURL

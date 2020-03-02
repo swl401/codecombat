@@ -72,12 +72,12 @@ export default class DriftTracker extends BaseTracker {
     const { me } = this.store.state
 
     const {
-      id,
+      _id,
       ...meAttrs
     } = me
 
     await window.drift.identify(
-      me._id.toString(),
+      _id.toString(),
       {
         ...meAttrs,
         ...traits
